@@ -1,4 +1,10 @@
 class BooksController < ApplicationController
+  def new
+  end
+  
+  def cerate
+  end
+  
   def index
   end
 
