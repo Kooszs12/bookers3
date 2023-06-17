@@ -13,21 +13,33 @@
 
   <body>
 
-    <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
-    </header>
-
+  <header>
+    <nav>
+      <div>
+        <a>
+          <span>Bookers</span>
+        </a>
+        <div>
+          <ul>
+            <li>
+              <i class="fas fa-home">
+                <%= link_to "Home", about_path %></i>
+            </li>
+            <li>
+              <i class="fas fa-link">Abou</i>
+             </li>
+            <li>
+              <i class="fas fa-user-plus">Sign up</i>
+            </li>
+            <li>
+              <i class="fas fa-sign-in-alt">Log in</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
     <%= yield %>
   </body>
 </html>
