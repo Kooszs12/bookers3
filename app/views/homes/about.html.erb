@@ -1,6 +1,6 @@
 <main>
   <p>Welcome! You have signed up successfully.</p>
-  
+
   <div>
     <div>
       <h2>User info</h2>
@@ -16,6 +16,21 @@
       </teble>
     </div>
   </div>
-  
+
   <h2>New book</h2>
+  <%= form_with model: @book do |f| %>
+
+  <div class = "label">
+    <%= f.label :title %>
+  </div>
+  <%= f.text_field :title %>
+  <div class = "label">
+    <%= f.label :body %>
+  </div>
+  <%= f.text_area :body %>
+  <div class = "label">
+    <%= f.submit 'Create Book' %>
+  </div>
+  <% end %>
+
 </main>
