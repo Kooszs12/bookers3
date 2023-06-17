@@ -26,7 +26,8 @@
                 <%= link_to "Home", about_path %></i>
             </li>
             <li>
-              <i class="fas fa-link">Abou</i>
+              <i class="fas fa-link">
+                <%= link_to "Abou", about_path %></i>
              </li>
             <li>
               <i class="fas fa-user-plus">Sign up</i>
@@ -40,6 +41,20 @@
     </nav>
   </header>
   
+  <% if user_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "Log in", new_user_session_path %>
+        </li>
+      <% end %>
+
+
     <%= yield %>
   </body>
 </html>
