@@ -21,40 +21,49 @@
         </a>
         <div>
           <ul>
-            <li>
-              <i class="fas fa-home">
-                <%= link_to "Home", about_path %></i>
-            </li>
-            <li>
-              <i class="fas fa-link">
-                <%= link_to "Abou", about_path %></i>
-             </li>
-            <li>
-              <i class="fas fa-user-plus">Sign up</i>
-            </li>
-            <li>
-              <i class="fas fa-sign-in-alt">Log in</i>
-            </li>
+            <% if user_signed_in? %>
+              <li>
+                <i class="fas fa-home">
+                  <%= link_to "Home", users_path %></i>
+              </li>
+              <li>
+                <i class="fa-solid fa-users">
+                  <%= link_to "Users", users_path %></i>
+              </li>
+              <li>
+                <i class="fa-solid fa-book-open">
+                  <%= link_to "Books", books_path %></i>
+              </li>
+              <li>
+                <i class="fa-solid fa-right-from-bracket">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                </i>
+              </li>
+            <% else %>
+              <li>
+                <i class="fas fa-home">
+                  <%= link_to "Home", about_path %></i>
+              </li>
+              <li>
+                <i class="fas fa-link">
+                  <%= link_to "Abou", about_path %></i>
+              </li>
+              <li>
+                <i class="fas fa-user-plus">
+                  <%= link_to "Sign up", new_user_registration_path %></i>
+              </li>
+              <li>
+                <i class="fas fa-sign-in-alt">
+                  <%= link_to "Log in", new_user_session_path %></i>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <% if user_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
-
-
     <%= yield %>
+
   </body>
 </html>
