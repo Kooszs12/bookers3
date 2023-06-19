@@ -1,2 +1,43 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<main>
+  <h2>User info</h2>
+    <div>
+      <a class="fa-solid fa-user-gear" href = "edit_user_path" ></a>
+    </div>
+
+  <h2>New book</h2>
+  <%= form_with model: @book do |f| %>
+    <div class = "label">
+      <%= f.label :title %>
+    </div>
+    <%= f.text_field :title %>
+    <div class = "label">
+      <%= f.label :body %>
+    </div>
+    <%= f.text_area :body %>
+    <div class = "label">
+      <%= f.submit 'Create Book' %>
+    </div>
+  <% end %>
+  
+  <h2>Book detail</h2>
+  <tabel>
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>mame</th>
+        <th></th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr>
+        <td><%= @book.title %></td>
+        <td><%= @book.body %></td>
+        <tb></tb>
+        <tb></tb>
+      </tr>
+    </tbody>
+  </tabel>
+
+

@@ -1,11 +1,26 @@
 <main>
   <h2>User info</h2>
     <div>
-      <a class="fa-solid fa-user-gear" herf = "edit_user_path" ></a>
+       <%= image_tag @user.get_image(100, 100) %>
+       <tabel>
+         <tbody>
+          <tr>
+            <th>name</th>
+            <th><%= @user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+         </tbody>
+       </tabel>
+      <%= link_to edit_user_path(@user) do %>
+      <i class="fa-solid fa-user-gear"></i>
+      <% end %>
     </div>
 
   <h2>New book</h2>
-  <%= form_with model: @book do |f| %>
+  <%= form_with model: @book_new do |f| %>
   <div class = "label">
     <%= f.label :title %>
   </div>
@@ -18,8 +33,8 @@
     <%= f.submit 'Create Book' %>
   </div>
   <% end %>
-  
-  <h2>Books</h2>
+
+  <h2>Book detail</h2>
 
   <tabel>
     <thead>
@@ -30,6 +45,15 @@
         <th colspan="3"></th>
       </tr>
     </thead>
+    <tbody>
+      <tr>
+        <% @books.each do |book| %>
+          <td><%= image_tag book.user.get_image(100, 100) %></td>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+        <% end %>
+      </tr>
+    </tbody>
   </tabel>
 
 </main>
