@@ -1,7 +1,7 @@
 <main>
   <h2>User info</h2>
     <div>
-       <%= image_tag @user.get_image(100, 100) %>
+      <%= image_tag @user.get_image(100, 100) %>
        <tabel>
          <tbody>
           <tr>
@@ -19,6 +19,21 @@
       <% end %>
     </div>
 
+  <h2>New book</h2>
+  <%= form_with model: @book_new do |f| %>
+  <div class = "label">
+    <%= f.label :title %>
+  </div>
+    <%= f.text_field :title %>
+  <div class = "label">
+    <%= f.label :body %>
+  </div>
+    <%= f.text_area :body %>
+  <div class = "label">
+    <%= f.submit 'Create Book' %>
+  </div>
+  <% end %>
+
   <h2>Users</h2>
 
   <tabel>
@@ -27,9 +42,18 @@
         <th>image</th>
         <th>mame</th>
         <th></th>
-        <th colspan="5"></th>
+        <th colspan="3"></th>
       </tr>
     </thead>
+    <tbody>
+      <tr>
+        <% @users.each do |user| %>
+          <td><%= image_tag user.get_image(100, 100) %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to "Show", user_path(@user.id) %></td>
+        <% end %>
+      </tr>
+    </tbody>
   </tabel>
 
 </main>
