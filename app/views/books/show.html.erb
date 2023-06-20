@@ -43,6 +43,7 @@
          <tb><%= @book.title %></tb>
          <tb><%= @book.body %></tb>
          <tb><%= link_to "Edit", edit_book_path(@book.id) %></tb>
+         <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
          <tb></tb>
       </tr>
     </tbody>
