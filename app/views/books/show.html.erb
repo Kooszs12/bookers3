@@ -36,11 +36,14 @@
 
   <h2>Book detail</h2>
   <tebel>
+    <th colspan="5"></th>
     <tbody>
       <tr>
          <td><%= image_tag @book.user.get_image(100, 100) %></td>
          <tb><%= @book.title %></tb>
          <tb><%= @book.body %></tb>
+         <tb><%= link_to "Edit", edit_book_path(@book.id) %></tb>
+         <tb></tb>
       </tr>
     </tbody>
   </tebel>
