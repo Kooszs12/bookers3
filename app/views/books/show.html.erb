@@ -35,17 +35,14 @@
   <% end %>
 
   <h2>Book detail</h2>
-
-  <tabel>
+  <tebel>
     <tbody>
       <tr>
-        <%= @book.each do |book| %>
-          <td><%= image_tag book.user.get_image(100, 100) %></td>
-          <td><%= book.title %></td>
-          <td><%= book.body %></td>
-        <% end %>
+         <td><%= image_tag @book.user.get_image(100, 100) %></td>
+         <tb><%= @book.title %></tb>
+         <tb><%= @book.body %></tb>
       </tr>
     </tbody>
-  </tabel>
+  </tebel>
 
 </main>

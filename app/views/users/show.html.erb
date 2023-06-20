@@ -2,18 +2,37 @@
   <h2>User info</h2>
 
   <h2>New book</h2>
-  <%= form_with model: @book do |f| %>
-
+  <%= form_with model: @book_new do |f| %>
   <div class = "label">
     <%= f.label :title %>
   </div>
-  <%= f.text_field :title %>
+    <%= f.text_field :title %>
   <div class = "label">
     <%= f.label :body %>
   </div>
-  <%= f.text_area :body %>
+    <%= f.text_area :body %>
   <div class = "label">
     <%= f.submit 'Create Book' %>
   </div>
   <% end %>
+
+  <h2>Books</h2>
+  <tabel>
+    <thead>
+      <tr>
+        <th></th>
+        <th>title</th>
+        <th>Opition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @books.each do |book| %>
+          <td><%= image_tag book.user.get_image(100, 100) %></td>
+          <tb><%= book.title %></tb>
+          <tb><%= book.body %></tb>
+        <% end %>
+      </tr>
+    </tbody>
+  </tabel>
 </main>
