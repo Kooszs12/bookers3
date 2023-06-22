@@ -1,4 +1,17 @@
 <main>
+  <div>
+    <% if @book_new.errors.any? %>
+      <h2><%= @book_new.errors.count %>error prohibited this from being saved:</h2>
+      <ul>
+        <% @book_new.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
   <p id = "notice"></p>
   <div class = "container px-5 px-sm-0">
     <div class = "row">
